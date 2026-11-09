@@ -1,0 +1,1 @@
+export {usermodel} from "./user.model.js"

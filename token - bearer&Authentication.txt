@@ -1,0 +1,58 @@
+
+1:Token/
+
+
+Token is a broad terms that refers to a piece of data (usually an encrypted or randomly generated string) that serves as a temporary digital credential. 
+It represents the user's identity, authentication state, or specific permissions.
+* Mechanism: Instead of sending sensitive credentials (like username and password) with every API request, 
+the client exchanges credentials once for a token. The client then presents this token to access protected resources.
+* Key Characteristics:
+	• Versatile: Can be passed via HTTP headers, URL query parameters, or inside the request body.
+	• Types: Includes API Keys, One-Time Passwords (OTP), Email Verification Tokens, and Session Tokens.
+
+
+
+
+2:Bearer Token/
+
+
+Bearer Token is a specific type of security token formalized under the OAuth 2.0 framework (RFC 6750). 
+The name comes from the literal definition of a bearer: "the person who holds or carries something."
+* Mechanism: A Bearer token grants access to whoever "bears" (possesses) it, without requiring any further cryptographic proof of identity.
+ The server does not check who sent the request; it only validates if the token is genuine and unexpired.
+* Protocol Requirement: According to web standards, 
+Bearer tokens must be sent inside the HTTP request header using a highly specific syntax:http Authorization: Bearer <your_access_token>
+
+
+
+3:Authentication/
+
+Authentication (often abbreviated as AuthN) is the security process of verifying the identity of a user, device, or system.
+ It answers the fundamental question: "Who are you?"
+Before a system can grant access to protected data, it must first verify that the entity requesting access is truly who they claim to be.
+
+. How Authentication Works
+
+The authentication process typically follows these three steps:
+1. Identification: The user provides an identifier (e.g., a username or email address).
+2. Verification: The user provides proof of identity (e.g., a password or biometric scan).
+3. Validation: The server compares the provided proof against the records stored in its database. If they match, the user is authenticated.
+
+. Authentication vs. Authorization (The Crucial Distinction)
+
+It is common to confuse Authentication with Authorization, but they serve completely different purposes:
+* Authentication (Who are you?): Verifies your identity (e.g., logging into your corporate email with a password).
+* Authorization (What can you do?): Verifies your permissions and access levels (e.g., checking if your account has permission to read, edit, or delete a specific financial report).
+
+. Types of Authentication Factors
+
+Authentication is built upon three primary types of factors:
+* Knowledge Factor (Something you know): Passwords, PINs, or answers to security questions.
+* Possession Factor (Something you have): Smart cards, hardware tokens, mobile phones (for receiving SMS OTPs), or Security Tokens.
+* Inherence Factor (Something you are): Biometrics such as fingerprints, facial recognition, or retina scans.
+
+. Modern Authentication Approaches
+
+* Single-Factor Authentication (SFA): Relies on only one factor (usually just a password). It is highly vulnerable to breaches.
+* Multi-Factor Authentication (MFA): Requires two or more factors (e.g., a password + an OTP code sent to a phone). This drastically improves security.
+* Token-Based Authentication: The modern stateless method where a user authenticates once using credentials, and the server responds with a Token (such as a Bearer Token). For all subsequent requests, the token is used instead of re-entering the password.
