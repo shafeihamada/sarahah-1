@@ -1,5 +1,6 @@
-export {errorHandler} from "./middleware/index.js"
+export {errorHandler,auth} from "./middleware/index.js"
 export {GenderEnum ,HashEnum ,tokenTypeEnum,RoleEnum} from "./enum/index.js"
 export {response} from "./utils/index.js"
 export {exceptions} from "./utils/index.js"
-export {myCompare ,myHash} from "./ security/index.js"
+export {myCompare ,myHash} from "./security/index.js"
+//export {authController} from "./module/auth/auth.controller.js"

@@ -1,7 +1,7 @@
 import express from "express";
     import configService from "./config/config.service.js";
 import {errorHandler} from  "./common/middleware/errorHandler.js";
-import {authController} from "./module/auth/auth.controller.js"
+import {authController} from "./module/index.js"
 import crypto from "node:crypto"
 
 const app =express();

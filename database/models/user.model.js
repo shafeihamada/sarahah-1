@@ -1,23 +1,23 @@
 import mongoose  from "mongoose";
-import {GenderEnum, RoleEnum} from "./../../common/index.js"
-import { RoleEnum } from "./../../common/enum/role.enum.js";
+import {GenderEnum, RoleEnum} from "./../../common/enum/index.js"
+//import { RoleEnum } from "./../../common/enum/role.enum.js";
 
-const userschema = new mongoose.schema({
+const userschema = new mongoose.Schema({
     firstname:{
-         type:string,
+         type:String,
          maxLength: 50,
          minLength:2,
          required:true
     },
     lastname:{
-         type:string,
+         type:String,
          maxLength: 50,
          minLength:2,
          required:true
 
     },
     email:{
-         type:string,
+         type:String,
          maxLength: 50,
          minLength:2,
          required:true,
@@ -29,10 +29,10 @@ enum:  Object.values(GenderEnum),
 default: GenderEnum.male
     },
     password:{
-        type:string,
+        type:String,
         required:true
     },
-    phone:{type:string},
+    phone:{type:String},
 
     role:{
         type:Number,
@@ -65,4 +65,4 @@ userschema.virtual("username").set(function(value){
 })
 
 
-export const usermodel = mongoose.model("User", userschema)
+export const userModel = mongoose.model("User", userschema)

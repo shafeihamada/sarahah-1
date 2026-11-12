@@ -1,15 +1,17 @@
 
-import { userModel } from "/index.js"
+import { userModel } from "../../database/models/index.js"
 import { BadRequestException } from "../utils/exceptions.js"
+import{verifyToken} from "../security/index.js"
+import { tokenTypeEnum } from "../enum/index.js"
 
-export const auth = async (req, res, next) => {
+export const auth =({tokenType=tokenTypeEnum.ACCESS}={})=> { return async (req, res, next)=>{ 
     let token = req.headers.authorization
     if (!token) {
-        BadRequestException("token npt provided")
+        throw new  BadRequestException("token not provided")
     }
     let { sub } = verifyToken({
-        token
+        token,tokenType
     })
-    let user = await userModel.findById(sub)
+    req.user = await userModel.findById(sub)
     next()
-}
+}}

@@ -1,7 +1,7 @@
 import {exceptions} from "../../common/index.js"
-import {encryption } from "../../commonlsecurity/encryption.js"
+import {encryption } from "../../common/security/encryption.js"
 import configService from "../../config/config.service.js"
-import{usermodel} from "../../database/models/index.js"
+import{userModel} from "../../database/models/index.js"
 import jwt from "jsonwebtoken"
 
 export const signup = async (data) => {

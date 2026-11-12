@@ -1,4 +1,4 @@
-import { hash, compare , gensalt } from "bcrypt";
+import { hash, compare , genSalt } from "bcrypt";
 import configservice from "../../config/config.service.js";
 import {HashEnum} from "../index.js"
 import argon2 from "argon2"
@@ -8,7 +8,7 @@ export const myHash = async ({ plaintext ,minor ="b" , lib =HashEnum.bcrypt}) =>
 switch (lib) {
     case HashEnum.bcrypt:
         
-    let salt = await gensalt(configservice.SALT , minor) 
+    let salt = await genSalt(configservice.SALT , minor) 
   let result = await hash(plaintext, salt)
   return result 
         

@@ -1,5 +1,7 @@
 import {Router} from "express"
 import * as as from "./auth.service.js"
+import {auth, tokenTypeEnum,response} from "../../common/index.js"
+const authController = Router()
 
  authController.post("/signup", async (req, res, next) => {
     let user = await as.signup(req.body);
@@ -12,7 +14,7 @@ import * as as from "./auth.service.js"
 });
 
 authController.post("/login", async (req, res, next) => {
-    let user = await await as.login(req.body); // تذكر إزالة await الزائدة إذا كانت تسبب مشكلة
+    let user =  await as.login(req.body);
     response({
         res, 
         data: user, 
@@ -28,3 +30,5 @@ authController.post("/rotate-token", auth({ tokenType: tokenTypeEnum.REFRESH }),
         message: "token rotated"
     });
 });
+
+export{authController}
