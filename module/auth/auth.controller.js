@@ -22,8 +22,8 @@ authController.post("/login", async (req, res, next) => {
     });
 });
 
-authController.post("/rotate-token", auth({ tokenType: tokenTypeEnum.REFRESH }), (req, res, next) => {
-    let tokens = as.rotateToken(req.user);
+authController.post("/rotate-token", auth({ tokenType: tokenTypeEnum.REFRESH }),async (req, res, next) => {
+    let result = await as.rotateToken(req.user,req.decoded);
     response({
         res, 
         data: tokens, 

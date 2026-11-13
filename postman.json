@@ -1,0 +1,69 @@
+Documentation
+sarahah
+﻿
+
+auth
+﻿
+
+POST
+create user
+http://localhost:3000/auth/signup
+﻿
+
+Body
+raw (json)
+json
+{
+    "firstname": "Ali",
+    "lastname": "Shafei",
+    "email": "ali@example.com",
+    "password": "Password123@",
+    "phone": "01012345608",
+    "gender": 1
+}
+POST
+http://localhost:3000/auth/login
+http://localhost:3000/auth/login
+﻿
+
+Body
+raw (json)
+json
+{
+    "email": "ahmed@example.com",
+    "password": "Password123!"
+}
+user
+﻿
+
+GET
+http://localhost:3000/user/profile
+http://localhost:3000/user/profile
+﻿
+
+Request Headers
+authorization
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YWY2MTM4ZjRhNGRkNGMyZGU5YTY2MTUiLCJyb2xlIjoxLCJpYXQiOjE3OTQ2MDY1MDUsImV4cCI6MTc5NDYwNjgwNX0.rYjZ6fhrIizD-dw1SgdhjLPaYcL85-5K5NKrAU9vB3w
+PATCH
+http://localhost:3000/user/update-user
+http://localhost:3000/user/update-user
+﻿
+
+Request Headers
+authorization
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YWY2MTI5ZDRhNGRkNGMyZGU5YTY2MTQiLCJyb2xlIjoxLCJpYXQiOjE3OTQ2MDgxMDAsImV4cCI6MTc5NDYwODQwMH0.fLFdNCOb_4mLBNTOLmpXekloDZalNG4DtrCc4oGKcwU
+Body
+raw (json)
+json
+{
+    "firstname":"mohammed",
+    "lastname":"hamada"
+}
+GET
+http://localhost:3000/user/admin-profile
+http://localhost:3000/user/admin-profile
+﻿
+
+Request Headers
+authorization
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YWY2MTI5ZDRhNGRkNG

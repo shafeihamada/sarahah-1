@@ -23,7 +23,7 @@ switch (lib) {
 
 };
 
-export const myCompare = async (plaintext, encrypted, lib= HashEnum.bcrypt) => {
+export const myCompare = async ({plaintext, encrypted, lib= HashEnum.bcrypt}) => {
   switch (lib) {
     case HashEnum.bcrypt:
 return await compare(plaintext , encrypted)

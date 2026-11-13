@@ -7,11 +7,14 @@ import { tokenTypeEnum } from "../enum/index.js"
 export const auth =({tokenType=tokenTypeEnum.ACCESS}={})=> { return async (req, res, next)=>{ 
     let token = req.headers.authorization
     if (!token) {
-        throw new  BadRequestException("token not provided")
+         BadRequestException("token not provided")
     }
-    let { sub } = verifyToken({
-        token,tokenType
-    })
-    req.user = await userModel.findById(sub)
-    next()
+    let decoded = verifyToken({
+    token,
+    tokenType
+});
+req.user = await userModel.findById(decoded.sub);
+req.decoded = decoded;
+next()
+
 }}
